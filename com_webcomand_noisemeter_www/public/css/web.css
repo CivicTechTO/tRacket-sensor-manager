@@ -1,0 +1,156 @@
+* {box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media screen and (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+body { margin: 0; font-family: Arial, sans-serif; color: #242424; }
+
+header { background-color: #242424; }
+header h1 { max-width: 1140px; margin: 0 auto; line-height: 76px; }
+header h1 a { display: block; width: 124px; background: url(/img/tracket-logo.webp) 12px center/100px no-repeat; text-indent: -9999px; }
+header h1 a:hover { opacity: .90; }
+
+nav { position: absolute; top: 0; right: 0; z-index: 1; }
+nav #toggle { display: none; }
+nav label { display: none; }
+nav ul { float: right; margin: 0; padding: 0; list-style: none; font-size: 0; white-space: nowrap; }
+nav ul li { display: inline-block; position: relative; }
+nav ul li a { display: inline-block; padding: 0 24px; font-size: 20px; line-height: 64px; color: #fff; text-decoration: none; }
+nav ul li:hover a { background-color: #444; color: #fff; }
+nav ul li a:hover { background-color: #444; color: #fff; }
+nav ul li ul { display: none; position: absolute; left: 0; background-color: #444; width: 200px; box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5); z-index: -200; }
+nav ul li ul.right { left: auto; width: 120px; right: 0; }
+nav ul li ul li { display: block; }
+nav ul li ul li a { display: block; line-height: 48px; }
+nav ul li:hover ul { display: block; }
+nav ul li ul li a:hover { background-color: #fff; color: #444; }
+
+    /* convert nav to hamburger menu */
+    nav { position: relative; top: -64px; max-width: 1140px; margin: 0 auto; z-index: 10; }
+    nav label { display: block; position: absolute; z-index: 1; right: 0; display: block; width: 64px; height: 64px; padding: 16px 12px 12px 12px; cursor: pointer; }
+    nav label:hover { background-color: #444; }
+    nav label hr { width: 28px; height: 3px; border: none; border-radius: 1px; background: #fff; margin: 6px auto; transition: all .25s ease; }
+    #toggle:checked ~ label { background-color: #444; }
+    #toggle:checked ~ label > hr:nth-child(1) { width: 34px; transform: translateY(9px) rotateZ(45deg); }
+    #toggle:checked ~ label > hr:nth-child(2) { width: 0; }
+    #toggle:checked ~ label > hr:nth-child(3) { width: 34px; transform: translateY(-9px) rotateZ(-45deg); }
+    
+    nav > ul { display: none; }
+    #toggle:checked ~ ul { display: block; }
+    nav ul { float: none; position: absolute; top: 64px; right: 0; width: auto; min-width: 200px; background-color: #444; box-shadow: 0 0 16px rgba(0, 0, 0, 0.25); }
+    nav ul li { display: block; }
+    nav ul li a { display: block; font-size: 20px; line-height: 44px; border-top: 1px solid rgba(255,255,255,0.25); }
+    nav > ul > li:first-child > a { border-top: none; }
+    nav ul li a:hover { background-color: #fff; color: #444; }
+    nav ul li ul { display: block; position: static; background-color: transparent; box-shadow: none; }
+    nav ul li ul li a { padding: 0 16px 0 32px; line-height: 44px; }
+
+main { margin: 12px; }
+body.chart main { position: absolute; top: 64px; left: 0; right: 0; bottom: 0; margin: 0; }
+
+main #meters { position: absolute; top: 66px; left: 10px; z-index: 3; width: 256px; background-color: #fff; box-shadow: 0 0 8px rgba(0,0,0,0.5); cursor: pointer; }
+main #meters::after { content: "\2bc6"; position: absolute; top: 4px; right: 12px; }
+main #meters.active::after { content: "\2bc5"; }
+main #meters p { margin: 0; padding: 8px 12px; }
+main #meters ul { display: none; max-height: 256px; margin: 0; padding: 0; list-style: none; overflow-x: hidden; overflow-y: auto; }
+main #meters.active ul { display: block; }
+main #meters ul li { margin: 0; padding: 0; }
+main #meters ul li a { display: block; padding: 4px 12px; color: blue; text-decoration: none; }
+main #meters ul li a:hover { background-color: blue; color: #fff; }
+
+main #map { position: absolute; top: 64px; left: 0; right: 0; bottom: 0; z-index: 1; }
+
+section.rich-text { max-width: 1140px; margin: 0 auto; }
+
+div.login { max-width: 320px; margin: 48px auto; box-shadow: 0 0 32px rgba(0,0,0.5); }
+div.login h2 { margin: 0; padding: 16px 24px; background-color: #242424; color: #fff; font-size: 22px; }
+div.login form { padding: 24px; }
+div.login form p { margin: 0 0 24px 0; font-size: 14px; }
+div.login .message { margin: 0 0 24px 0; border: 1px solid #f00; padding: 12px; background-color: #fee; color: #f00; }
+div.login .field { margin: 16px 0; }
+div.login .field label { font-weight: bold; }
+.help { cursor: help; }
+div.login .field.checkbox label { line-height: 24px; vertical-align: top; }
+.popup_editor form > input[type=text],
+div.login input[type=email] { display: block; width: 100%; margin: 4px 0; padding: 12px 8px; font-size: 16px; }
+div.login input[type=checkbox],
+.popup_editor input[type=checkbox] { width: 24px; height: 24px; margin: 0; vertical-align: top; }
+.popup_editor button[type=submit],
+div.login input[type=submit] { border: none; border-radius: 4px; padding: 12px 24px; background-color: #003566; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; color: #fff; }
+.popup_editor button[type=submit]:hover,
+div.login input[type=submit]:hover { background-color: #fb5900; cursor: pointer; }
+
+.device_manager main { max-width: 1140px; margin: 0 auto 48px auto; padding: 0 18px; }
+.device_manager main section { clear: both; }
+.device_manager main section.nav { display: flex; width: 100%; align-items: center; justify-content: space-between; }
+.device_manager section h2.title { margin: 12px 0; font-size: 18px; }
+.device_manager main section.nav ul { margin: 12px 0 12px 8px; padding: 0; list-style: none; }
+.device_manager main section.nav ul li a { padding: 8px 12px; background-color: #eee; color: #000; text-decoration: none; }
+.device_manager main section.nav ul li a:hover { background-color: #ddd; }
+.device_manager main section.device { position: relative; min-height: 268px; margin: 0 0 12px 0; padding: 12px 268px 12px 12px; background-color: #FFF9F0; }
+.device_manager main section.device .details { display: flex; flex-wrap: wrap; min-height: 76px; background: url(/img/tracket-device.png) 0 0/64px no-repeat; padding-left: 64px; }
+.device_manager main section.device .details .field { margin: 0 0 12px 12px; }
+.device_manager main section.device .details .field .label { margin-bottom: 4px; text-transform: uppercase; font-weight: bold; font-size: 10px; color: #555; }
+.device_manager main section.device .details .field .value { color: #000; }
+.device_manager main section.device .details .field.attention .value { position: relative; top: -2px; border-radius: 8px; border: 1px solid #f00; padding: 2px 6px; background-color: #fee; color: #f00; }
+.device_manager main section.device .details .field.success   .value { position: relative; top: -2px; border-radius: 8px; border: 1px solid #080; padding: 2px 6px; background-color: #efe; color: #080; }
+.device_manager main section.device .plotly-graph-div { height: 164px; }
+
+
+.device_manager section.profile .field .label { display: inline; font-weight: bold; }
+.device_manager section.profile .field .label::after { content: ":"; }
+.device_manager section.profile .field .value { display: inline; }
+
+.device-map { position: absolute; top: 6px; right: 6px; bottom: 6px; width: 256px; z-index: 1; }
+.device-map.no-location { display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,.25); cursor: pointer; }
+.device-map.no-location::after { content: 'Set location'; }
+.device-map .leaflet-control-geocoder-form input { width: 200px; }
+.device-map .leaflet-control-geocoder-alternatives { width: 230px; max-height: 120px; overflow-y: auto; }
+
+#edit-location-map { margin: 4px 0 12px 0; width: 100%; height: 256px; }
+#edit-location-map .leaflet-control-geocoder-form input { width: 220px; height: 29px; font-size: 16px; line-height: 16px; }
+#edit-location-map .leaflet-control-geocoder-alternatives { width: 250px; max-height: 120px; overflow-y: auto; }
+#edit-location-map .leaflet-control-geocoder-form { vertical-align: baseline; }
+
+i.edit { display: inline-block; margin: 0 0 0 4px; width: 16px; height: 16px; background: url(/img/edit.svg) 3px 3px/10px no-repeat; cursor: pointer; opacity: .5; }
+i.edit:hover { opacity: 1; }
+
+/*.popup_editor { position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: 101; min-width: 320px; max-height: 100%; background-color: #fff; box-shadow: 0 0 8px rgba(0,0,0,.5); }*/
+.popup_editor { display: flex; justify-content: center; align-items: center; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.2); z-index: 100; }
+.popup_editor > .content { display: flex; flex-direction: column; width: 320px; max-height: 90%; border: 1px solid #fff; background-color: #fff; box-shadow: 0 0 8px rgba(0,0,0,.5); }
+
+.popup_editor .titlebar { position: relative; margin: 0; padding: 12px; background-color: #242424; color: #fff; font-size: 18px; line-height: 20px; }
+.popup_editor .titlebar .close { position: absolute; top: 0; right: 0; width: 44px; height: 44px; cursor: pointer; }
+.popup_editor .titlebar .close:hover { opacity: .9; }
+.popup_editor .titlebar .close::after { position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); content: "X"; font-style: normal; }
+.popup_editor form { padding: 12px; overflow-y: auto; }
+.popup_editor form label { display: block; margin: 8px 0 0 0; }
+.popup_editor form select { width: 100%; margin: 4px 0; padding: 12px 8px; }
+.popup_editor form label.checkbox { display: block; margin: 8px 0; line-height: 24px; }
+
+i.help::after { content: "?"; display: inline-block; position: relative; top: -2px; width: 16px; height: 16px; margin-left: 4px; border: 1px solid #080; border-radius: 32px; font-style: normal; font-size: 11px; line-height: 16px; font-weight: bold; background-color: #efe; color: #080; text-align: center; vertical-align: middle;}
+.help-text { display: none; margin: 0 0 12px 0; border: 1px solid #080; border-radius: 8px; padding: 1px 12px; background-color: #efe; font-size: 12px; color: #080; }
+.help-text ol,
+.help-text ul { padding: 0 0 0 14px;}
+.help-text li { margin: 8px 0;}
+
+@media (max-width:768px){
+    .device_manager main section.device { padding: 12px; }
+    .device_manager main section.device .details {}
+    .device_manager main section.device .details .field { }
+    .device_manager main section.device .details .value { overflow-wrap: anywhere; }
+
+    .device-map { position: relative; top: auto; right: auto; bottom: auto; width: 100%; height: 256px; margin-bottom: 8px; }
+}
+
+@media (max-width:640px){
+    .device_manager main { padding: 0 8px; }
+}
+
+footer { position: fixed; bottom: 0; z-index: 2; background-color: rgba(0,0,0,.75); font-size: 10px; }
+footer ul { margin: 0; padding: 0; list-style: none; }
+footer ul li { display: inline-block; margin: 0; padding: 0; }
+footer ul li a { display: inline-block; padding: 4px; color: #ccc; text-decoration: none; }
+footer ul li a:hover { color: #fff; text-decoration: underline; }
